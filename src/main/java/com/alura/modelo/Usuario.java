@@ -1,5 +1,7 @@
 package com.alura.modelo;
 
+import com.alura.dto.TopicoCursoDTO;
+import com.alura.dto.TopicoUsuarioDTO;
 import jakarta.persistence.*;
 
 
@@ -12,6 +14,12 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private String contrasena;
+
+	public Usuario(TopicoUsuarioDTO topicoCursoDTO){
+		this.id = topicoCursoDTO.id();
+		this.nombre = topicoCursoDTO.nombre();
+		this.email = topicoCursoDTO.email();
+	}
 
 	@Override
 	public int hashCode() {

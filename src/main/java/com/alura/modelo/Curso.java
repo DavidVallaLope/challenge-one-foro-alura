@@ -1,5 +1,6 @@
 package com.alura.modelo;
 
+import com.alura.dto.TopicoCursoDTO;
 import jakarta.persistence.*;
 
 @Table(name ="cursos")
@@ -17,6 +18,12 @@ public class Curso {
 	}
 
 	public Curso() {
+	}
+
+	public Curso(TopicoCursoDTO topicoCursoDTO){
+		this.id = topicoCursoDTO.id();
+		this.nombre = topicoCursoDTO.nombre();
+		this.categoria = topicoCursoDTO.categoria();
 	}
 
 	@Override

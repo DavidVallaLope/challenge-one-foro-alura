@@ -1,6 +1,9 @@
 package com.alura.modelo;
 
+import com.alura.domain.UsuarioRepository;
+import com.alura.dto.TopicoDTO;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -31,6 +34,13 @@ public class Topico {
 
 	public Topico() {
 
+	}
+
+	public Topico(TopicoDTO topicoDTO){
+		this.titulo = topicoDTO.titulo();
+		this.mensaje = topicoDTO.mensaje();
+		this.curso = new Curso(topicoDTO.curso());
+		this.autor = new Usuario(topicoDTO.usuario());
 	}
 
 	@Override
