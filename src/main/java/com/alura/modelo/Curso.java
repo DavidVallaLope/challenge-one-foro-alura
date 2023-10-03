@@ -1,7 +1,12 @@
 package com.alura.modelo;
 
+import jakarta.persistence.*;
+
+@Table(name ="cursos")
 public class Curso {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String categoria;
@@ -10,7 +15,10 @@ public class Curso {
 		this.nombre = nombre;
 		this.categoria = categoria;
 	}
-	
+
+	public Curso() {
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

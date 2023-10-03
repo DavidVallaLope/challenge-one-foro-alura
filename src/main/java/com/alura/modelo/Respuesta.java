@@ -1,13 +1,21 @@
 package com.alura.modelo;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "respuestas")
 public class Respuesta {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String mensaje;
+	@Embedded
 	private Topico topico;
 	private LocalDateTime fechaCreacion = LocalDateTime.now();
+	@Embedded
 	private Usuario autor;
 	private Boolean solucion = false;
 
